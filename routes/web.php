@@ -18,3 +18,13 @@ $router->get('/', function () use ($router) {
 });
 
 $router->post('/registrasi', 'RegistrasiController@registrasi');
+$router->post('/login', 'LoginController@login');
+
+//produk
+$router->group(['prefix'=>'produk'], function($router) {
+    $router->post('/', 'ProdukController@create');
+    $router->get('/', 'ProdukController@list');
+    $router->get('/{id}', 'ProdukController@show');
+    $router->post('/{id}/update', 'ProdukController@update');
+    $router->delete('/{id}', 'ProdukController@delete');
+});
